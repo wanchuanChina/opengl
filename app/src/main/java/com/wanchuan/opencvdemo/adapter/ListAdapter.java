@@ -37,7 +37,9 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                activity.startActivity(new Intent(activity, activityNameList.get(i).gettClass()));
+                Intent intent = new Intent(activity, activityNameList.get(i).gettClass());
+                intent.putExtra("type", activityNameList.get(i).getType());
+                activity.startActivity(intent);
             }
         });
     }
